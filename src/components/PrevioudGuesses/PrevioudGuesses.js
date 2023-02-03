@@ -2,9 +2,11 @@ import React from "react";
 
 function PrevioudGuesses({ guesses }) {
   return (
-    <div class="guess-results">
-      {guesses.map((guess) => (
-        <p class="guess">{guess}</p>
+    <div className="guess-results">
+      {guesses.map(({ guess, id }) => (
+        <p className="guess" key={id}>
+          {guess}
+        </p>
       ))}
     </div>
   );

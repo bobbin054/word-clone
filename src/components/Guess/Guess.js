@@ -5,16 +5,16 @@ function Guess({ guesses, setGuesses }) {
   return (
     <>
       <form
-        class="guess-input-wrapper"
+        className="guess-input-wrapper"
         onSubmit={(e) => {
           e.preventDefault();
           console.log("Guess: ", guess);
-          const nextGuesses = [...guesses, guess];
+          const nextGuesses = [...guesses, { guess, id: Math.random() }];
           setGuesses(nextGuesses);
           setGuess("");
         }}
       >
-        <label for="guess-input">Enter guess:</label>
+        <label htmlFor="guess-input">Enter guess:</label>
         <input
           id="guess-input"
           value={guess}
