@@ -4,13 +4,13 @@ function GuessResults({ guesses }) {
   return (
     <div className="guess-results">
       {guesses.map(({ guess, id }) => (
-        <div className="guess-results">
+        <div className="guess-results" key={id}>
           <p className="guess">
-          {guess.split("").map((letter, index) => (
-            <span className="cell" key={index}>
-              {letter}
-            </span>
-          ))}
+            {guess.split("").map((letter, index) => (
+              <span className="cell" key={index}>
+                {letter}
+              </span>
+            ))}
           </p>
         </div>
       ))}
