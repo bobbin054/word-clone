@@ -4,8 +4,7 @@ function GameResult({ gameResult, noOfGuesses, answer }) {
   const winMessage = (
     <div className="happy banner">
       <p>
-        <strong>Congratulations!</strong> Got it in
-        <strong>{`${noOfGuesses} guesses`} </strong>.
+        <strong>Congratulations!</strong> Got it in <strong>{`${noOfGuesses} guesses`} </strong>.
       </p>
     </div>
   );
