@@ -1,6 +1,7 @@
 import React from "react";
+import { checkGuess } from "../../game-helpers";
 
-function GuessInput({ guesses, setGuesses }) {
+function GuessInput({ guesses, setGuesses, answer,gameComplete }) {
   const [guess, setGuess] = React.useState("");
   return (
     <>
@@ -13,6 +14,7 @@ function GuessInput({ guesses, setGuesses }) {
           if (!nextGuess) return;
           nextGuess.guess = guess;
           nextGuess.done = true;
+          nextGuess.guessStatus = checkGuess(guess, answer);
           setGuesses(nextGuesses);
           setGuess("");
         }}
@@ -24,8 +26,8 @@ function GuessInput({ guesses, setGuesses }) {
           required
           minLength={5}
           maxLength={5}
+          disabled={gameComplete}
           onChange={(e) => {
-           
             setGuess(e.target.value.toUpperCase());
           }}
           type="text"

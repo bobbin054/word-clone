@@ -1,14 +1,13 @@
 import React from "react";
-import { checkGuess } from "../../game-helpers";
-import { answer } from "../Game/Game";
 
-function Guess({ guess, id }) {
+function Guess({ guess, guessStatus }) {
   return (
     <p className="guess">
       {guess.guess.split("").map((letter, id) => {
-        const guessStatus = guess.done ? checkGuess(guess.guess, answer) : null;
-        const letterStatus = guessStatus ? guessStatus[id].status : "";
-
+        let letterStatus ="";
+        if (guess.guessStatus.length === 5) {
+          letterStatus = guess.guessStatus[id].status;
+        }
         return (
           <span className={"cell " + letterStatus} key={id}>
             {letter}
