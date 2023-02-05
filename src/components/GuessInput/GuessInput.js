@@ -8,8 +8,11 @@ function GuessInput({ guesses, setGuesses }) {
         className="guess-input-wrapper"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("Guess: ", guess);
-          const nextGuesses = [...guesses, { guess, id: Math.random() }];
+          const nextGuesses = [...guesses];
+          const nextGuess = nextGuesses.find((g) => g.done === false);
+          if (!nextGuess) return;
+          nextGuess.guess = guess;
+          nextGuess.done = true;
           setGuesses(nextGuesses);
           setGuess("");
         }}
