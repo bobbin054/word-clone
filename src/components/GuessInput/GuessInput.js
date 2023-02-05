@@ -12,7 +12,7 @@ function GuessInput({ guesses, setGuesses, answer,gameComplete }) {
           const nextGuesses = [...guesses];
           const nextGuess = nextGuesses.find((g) => g.done === false);
           if (!nextGuess) return;
-          nextGuess.guess = guess;
+          nextGuess.value = guess;
           nextGuess.done = true;
           nextGuess.guessStatus = checkGuess(guess, answer);
           setGuesses(nextGuesses);
@@ -26,6 +26,7 @@ function GuessInput({ guesses, setGuesses, answer,gameComplete }) {
           required
           pattern="[a-zA-Z]{5}"
           title="5 letter word"
+          maxLength={5}
           disabled={gameComplete}
           onChange={(e) => {
             setGuess(e.target.value.toUpperCase());

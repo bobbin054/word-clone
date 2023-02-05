@@ -3,7 +3,7 @@ import React from "react";
 function Guess({ guess, guessStatus }) {
   return (
     <p className="guess">
-      {guess.guess.split("").map((letter, id) => {
+      {guess.value.split("").map((letter, id) => {
         let letterStatus ="";
         if (guess.guessStatus.length === 5) {
           letterStatus = guess.guessStatus[id].status;

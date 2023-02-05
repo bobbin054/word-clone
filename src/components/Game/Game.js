@@ -15,14 +15,14 @@ console.info({ answer });
 
 function Game() {
   const initialGuesses = range(NUM_OF_GUESSES_ALLOWED).map((id) => ({
-    guess: "     ",
+    value: "     ",
     id: Math.random(),
     done: false,
     guessStatus: [],
   }));
   const [guesses, setGuesses] = React.useState(initialGuesses);
   let gameResult = "Playing";
-  if (guesses.some((guess) => guess.guess === answer)) {
+  if (guesses.some((guess) => guess.value === answer)) {
     gameResult = "Won";
   } else if (guesses.every((predicate) => predicate.done === true)) {
     gameResult = "Lost";
